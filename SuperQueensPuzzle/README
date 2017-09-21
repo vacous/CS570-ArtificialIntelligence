@@ -1,0 +1,2 @@
+The number of attack pairs is used as the cost through the solver. 
+To use the solver simply set the dimension of the board in the Main. 

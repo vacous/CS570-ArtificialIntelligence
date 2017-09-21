@@ -1,0 +1,8 @@
+There are two boards:
+The simple board is used as the Node for a DFS search for knight move across the board. 
+It can also be used for the distance map for different set of move rules. 
+The result distance map generated is a HashMap which maps a point pair, represented by a HashSet of two points,
+to a shortest steps. The distance in the map is similar to the Manhattan distance used for normal 15 puzzle. The puzzle board class is the node used for the A* algorithm search for the optimal solution. The moves records 
+are saved internally for easier retrieve of the records. The board is implemented with comparable interface so that priority queue can be used to extract the one with the minimum heuristic. 
+
+To use the solver: input the value for each tile in the format as shown in the example input files and pass the address to the solver in Main. 
