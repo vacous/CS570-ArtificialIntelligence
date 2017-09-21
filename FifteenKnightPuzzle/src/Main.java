@@ -18,6 +18,7 @@ public class Main {
 		DistanceMap dist_map = new DistanceMap(board_height, board_width, sq_dist);
 		HashMap<HashSet<Point>, Integer> in_dist_map = dist_map.constructMap();
 //		read in file
+//		HERE!!!!!!!!!!!!!!!!!!!!!
 		HashSet<ArrayList<Integer>> in_orders = boardReader("tilepuz-jqs33.txt");
 		int solved_puzzle_counter = 0;
 		for(ArrayList<Integer> cur_in_order: in_orders)

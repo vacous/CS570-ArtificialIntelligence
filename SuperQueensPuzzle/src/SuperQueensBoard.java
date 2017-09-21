@@ -20,9 +20,17 @@ public class SuperQueensBoard implements Comparable<SuperQueensBoard>{
 	
 	public HashSet<Point> nextAvailables()
 	{
+		HashSet<Integer> occpuied_jdxs = new HashSet<>();
+		for(Point each_exist: loc_map.keySet())
+		{
+			occpuied_jdxs.add(each_exist.y);
+		}
 		HashSet<Point> out = new HashSet<>();
 		for(int jdx = 0; jdx < board_size; jdx +=1)
-			out.add(new Point(cur_row_num, jdx));
+		{
+			if(!occpuied_jdxs.contains(jdx))
+				out.add(new Point(cur_row_num, jdx));
+		}
 		return out;
 	}
 	
@@ -43,11 +51,9 @@ public class SuperQueensBoard implements Comparable<SuperQueensBoard>{
 		double x_diff_abs = Math.abs(p1.x - p2.x);
 		double y_diff_abs = Math.abs(p1.y - p2.y);
 		if(p1.equals(p2)) return false;
-		return p1.x == p2.x || // x
-				p1.y == p2.y || // y
-				x_diff_abs == y_diff_abs  || // Diagonal
-				(x_diff_abs == KNIGHT_1 && y_diff_abs == KNIGHT_2) ||
-				(x_diff_abs == KNIGHT_2 && y_diff_abs == KNIGHT_1);
+		return 	x_diff_abs == y_diff_abs  || // Diagonal
+				(x_diff_abs == KNIGHT_1 && y_diff_abs == KNIGHT_2) || // knight
+				(x_diff_abs == KNIGHT_2 && y_diff_abs == KNIGHT_1); //knight
 	}
 	
 	public void totalAttacks()
